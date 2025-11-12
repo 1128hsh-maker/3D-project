@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[System.Serializable]
+[CreateAssetMenu(fileName = "Item", menuName = "New Item")]
+public class Item : ScriptableObject
+{ 
+    [Header("Info")]
+    public string displayName;
+    public string description; 
+    public Sprite icon;
+    public GameObject dropPrefab;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Equip")]
+    public GameObject equipPrefab;
 }

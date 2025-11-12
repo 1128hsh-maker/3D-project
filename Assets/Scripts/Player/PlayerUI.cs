@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUI : Player
+public class PlayerUI : MonoBehaviour
 {
     public float hp = 100f;
 

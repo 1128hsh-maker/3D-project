@@ -23,6 +23,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "f63417e4-24a7-4d96-80d8-f3821a439738",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Farming",
+                    "type": "Button",
+                    "id": "d8dd1a3d-bc3d-4935-9ec9-3b647f7d5fab",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -40,7 +58,7 @@
                 {
                     "name": "up",
                     "id": "5b79254e-c1b1-4644-b2cd-50c0a393e4da",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -51,7 +69,7 @@
                 {
                     "name": "down",
                     "id": "5497db70-8956-4f0c-97be-310f1eb8ada0",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -62,7 +80,7 @@
                 {
                     "name": "left",
                     "id": "ec996f8f-04c7-442a-8bc6-7a96bf38d82b",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -73,7 +91,7 @@
                 {
                     "name": "right",
                     "id": "4cadda0a-f079-4537-8890-5e18ea10d096",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -89,6 +107,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78088ea3-9f7b-40ed-ab1b-c081e99566e9",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a770520-a897-4274-8ead-56a0d1b0e4e3",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Farming",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

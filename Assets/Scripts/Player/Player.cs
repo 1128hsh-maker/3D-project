@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +9,7 @@ public class Player : PlayerManager
     public static Player instance;
 
     [Header("유저")]
-    private Rigidbody rB;
+    public Rigidbody rB;
     public float jP = 10f;
     private Vector2 mV;
     public float mS = 5f;
@@ -16,15 +17,21 @@ public class Player : PlayerManager
     [Header("시선")]
     private Vector2 cam;
     public Transform cameraContainer;
-    private float minXLook;
-    private float maxXLook;
+    public float minXLook;
+    public float maxXLook;
     private float camCurXRot;
-    private float lookSensitivity;
+    public float lookSensitivity;
     private bool canLook = true;
 
+    public string itemName;
+    public string itemInfo;
 
 
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +43,7 @@ public class Player : PlayerManager
     void Update()
     {
         MoveMent();
+        ItemCheck();
     }
     void LateUpdate()
     {
@@ -82,5 +90,23 @@ public class Player : PlayerManager
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
 
         transform.eulerAngles += new Vector3(0, cam.x * lookSensitivity, 0);
+    }
+    public void ItemCheck()
+    {
+
+        float maxDistance = 10;
+        RaycastHit hit;
+        // Physics.BoxCast (레이저를 발사할 위치, 사각형의 각 좌표의 절판 크기, 발사 방향, 충돌 결과, 회전 각도, 최대 거리)
+        bool isHit = Physics.BoxCast(transform.position, transform.lossyScale / 2, transform.forward, out hit, transform.rotation, maxDistance);
+
+        if (isHit)
+        {
+            if (hit.collider.gameObject.TryGetComponent<ItemData>(out ItemData what))
+            {
+                GameUI.instance.itemName.text = what.item.displayName;
+            }
+            else return;
+
+        }
     }
 }
