@@ -91,6 +91,19 @@ public class Player : PlayerManager
 
         transform.eulerAngles += new Vector3(0, cam.x * lookSensitivity, 0);
     }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Vector3 start = transform.position;
+        Vector3 halfExtents = transform.lossyScale / 2f;
+        Vector3 direction = transform.forward;
+        float distance = 10f; // 박스 캐스트 거리
+        Gizmos.matrix = Matrix4x4.TRS(start, transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, halfExtents * 2f); // 시작 위치의 박스
+        Gizmos.matrix = Matrix4x4.TRS(start + direction * distance, transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, halfExtents * 2f); // 이동 후 위치의 박스
+    }
     public void ItemCheck()
     {
 
@@ -109,4 +122,6 @@ public class Player : PlayerManager
 
         }
     }
+
+
 }
